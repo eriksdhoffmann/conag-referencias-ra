@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referências &amp; Modelos 3D RA — CONAG 2026 | GeoLab UDESC</title>
+  <style>
+    :root {
+      --bg: #eef2ee;
+      --surface: #ffffff;
+      --primary: #142b1e;
+      --accent: #2d5a3f;
+      --accent-soft: #e6efe9;
+      --text: #1b221e;
+      --muted: #526058;
+      --border: #d4dfd7;
+      --shadow: 0 6px 20px rgba(20, 43, 30, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top right, #dce7df 0%, var(--bg) 55%, #e5ebe6 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .beacon-container {
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .profile-card {
+      background: linear-gradient(145deg, var(--primary) 0%, #214631 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(20, 43, 30, 0.22);
+    }
+    .event-pill {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #e6f2ea;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .work-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .authors {
+      font-size: 12.5px;
+      color: #d6e4da;
+      line-height: 1.45;
+    }
+    .section-heading {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-left: 6px;
+      margin-top: 4px;
+    }
+    .beacon-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 15px 16px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .beacon-link:hover, .beacon-link:active {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px rgba(20, 43, 30, 0.13);
+    }
+    .icon-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .link-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .link-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 5px;
+    }
+    .link-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .link-citation {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .arrow {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+      align-self: center;
+      flex-shrink: 0;
+    }
+    .ar-btn {
+      background: linear-gradient(135deg, #1d422c 0%, #2d5a3f 100%);
+      color: #ffffff;
+      border-color: #1d422c;
+    }
+    .ar-btn .icon-badge {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+    .ar-btn .link-title { color: #ffffff; }
+    .ar-btn .link-citation { color: #d9eadf; }
+    .ar-btn .arrow { color: #ffffff; }
+    .copy-btn {
+      width: 100%;
+      background: var(--surface);
+      border: 1.5px dashed var(--accent);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .copy-btn:hover { background: var(--accent-soft); }
+    details.more-refs {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+    details.more-refs summary {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.more-refs .ref-item {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #edf2ee;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    details.more-refs .ref-item a {
+      color: var(--accent);
+      font-weight: 600;
+      word-break: break-all;
+    }
+    footer {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <main class="beacon-container">
+    <section class="profile-card">
+      <div class="event-pill">I CONAG • Florianópolis, 2026</div>
+      <h1 class="work-title">Modelagem 3D de Parcelas SIGEF em Realidade Aumentada com Fins Didáticos</h1>
+      <p class="authors">
+        Erik Hoffmann Ferreira (UDESC) • Bernardo Simon Provedan (UFSC)<br>
+        João Henrique Quoos (IFSC / SEPLAN-SC) • Francisco Henrique de Oliveira (UDESC)
+      </p>
+    </section>
+
+    <div class="section-heading">Referências Normativas do Fluxo Metodológico</div>
+
+    <a class="beacon-link" href="https://www.abntcatalogo.com.br/" target="_blank" rel="noopener noreferrer">
+      <div class="icon-badge">NBR</div>
+      <div class="link-body">
+        <span class="link-tag">ABNT (2021)</span>
+        <div class="link-title">ABNT NBR 13133 — Levantamento Topográfico</div>
+        <div class="link-citation">
+          ABNT — ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. <em>NBR 13133: Execução de levantamento topográfico — Requisitos</em>. Rio de Janeiro: ABNT, 2021.
+        </div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+
+    <a class="beacon-link" href="https://www.planalto.gov.br/ccivil_03/leis/leis_2001/l10267.htm" target="_blank" rel="noopener noreferrer">
+      <div class="icon-badge">LEI</div>
+      <div class="link-body">
+        <span class="link-tag">BRASIL (2001)</span>
+        <div class="link-title">Lei Federal nº 10.267/2001 (Texto Oficial)</div>
+        <div class="link-citation">
+          BRASIL. Lei nº 10.267, de 28 de agosto de 2001. Altera dispositivos das Leis nos 4.947/1966, 5.868/1972, 6.015/1973, 6.739/1979 e 9.393/1996. <em>Diário Oficial da União</em>, Brasília, 29 ago. 2001.
+        </div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+
+    <a class="beacon-link" href="https://sigef.incra.gov.br/" target="_blank" rel="noopener noreferrer">
+      <div class="icon-badge">INCRA</div>
+      <div class="link-body">
+        <span class="link-tag">INCRA (2013)</span>
+        <div class="link-title">Norma Técnica de Georreferenciamento &amp; SIGEF</div>
+        <div class="link-citation">
+          INCRA — INSTITUTO NACIONAL DE COLONIZAÇÃO E REFORMA AGRÁRIA. <em>Norma técnica para georreferenciamento de imóveis rurais</em>. 3. ed. Brasília: INCRA, 2013.
+        </div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+
+    <button class="copy-btn" id="copyRefsBtn" type="button">
+      📋 Copiar referências normativas (formato ABNT)
+    </button>
+
+    <div class="section-heading">Modelos 3D Interativos em Realidade Aumentada</div>
+
+    <a class="beacon-link ar-btn" href="https://geolab.faed.udesc.br/index.php?option=com_geolab3d&view=display&format=raw&alias=modelo-terreno-rural-conag" target="_blank" rel="noopener noreferrer">
+      <div class="icon-badge">3D</div>
+      <div class="link-body">
+        <div class="link-title">Parcelas SIGEF em Realidade Aumentada</div>
+        <div class="link-citation">Abrir modelo 3D interativo com divisas, matrículas e vértices (GeoLab/UDESC).</div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+
+    <a class="beacon-link ar-btn" href="https://geolab.faed.udesc.br/index.php?option=com_geolab3d&view=display&format=raw&alias=modelo-terreno-rural-conag-2" target="_blank" rel="noopener noreferrer">
+      <div class="icon-badge">RA</div>
+      <div class="link-body">
+        <div class="link-title">Terreno Rural em Realidade Aumentada</div>
+        <div class="link-citation">Abrir modelo 3D completo do relevo em Cunhataí – SC (exagero vertical 3×).</div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+
+    <details class="more-refs">
+      <summary>
+        <span>📚 Demais referências bibliográficas do trabalho (4)</span>
+        <span>+</span>
+      </summary>
+      <div class="ref-item">
+        <strong>AZUMA, R. T.</strong> A survey of augmented reality. <em>Presence: Teleoperators and Virtual Environments</em>, v. 6, n. 4, p. 355-385, 1997.
+      </div>
+      <div class="ref-item">
+        <strong>BOLKAS, D. et al.</strong> Development of VR/AR applications to support geospatial education. <em>ISPRS Archives</em>, v. XLIX-B5-2026, p. 71-78, 2026.<br>
+        <a href="https://doi.org/10.5194/isprs-archives-XLIX-B5-2026-71-2026" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/isprs-archives-XLIX-B5-2026-71-2026</a>
+      </div>
+      <div class="ref-item">
+        <strong>CEMELLINI, B.; VAN OOSTEROM, P.; THOMPSON, R.; DE VRIES, M.</strong> Design, development and usability testing of an LADM compliant 3D Cadastral prototype system. <em>Land Use Policy</em>, v. 98, art. 104418, 2020.<br>
+        <a href="https://doi.org/10.1016/j.landusepol.2019.104418" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.landusepol.2019.104418</a>
+      </div>
+      <div class="ref-item">
+        <strong>HALIK, Ł.; WIELEBSKI, Ł.</strong> Usefulness of plane-based augmented geovisualization: case of "The Crown of Polish Mountains 3D". <em>ISPRS International Journal of Geo-Information</em>, v. 12, n. 2, art. 38, 2023.<br>
+        <a href="https://doi.org/10.3390/ijgi12020038" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ijgi12020038</a>
+      </div>
+    </details>
+
+    <footer>
+      GeoLab / FAED — Universidade do Estado de Santa Catarina (UDESC)<br>
+      I Congresso Brasileiro de Agrimensura, Geotecnologias e Regularização Fundiária (CONAG)
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('copyRefsBtn').addEventListener('click', async function () {
+      const text = [
+        'ABNT — ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS. NBR 13133: Execução de levantamento topográfico — Requisitos. Rio de Janeiro: ABNT, 2021.',
+        'BRASIL. Lei nº 10.267, de 28 de agosto de 2001. Altera dispositivos das Leis nos 4.947/1966, 5.868/1972, 6.015/1973, 6.739/1979 e 9.393/1996, e dá outras providências. Diário Oficial da União, Brasília, 29 ago. 2001.',
+        'INCRA — INSTITUTO NACIONAL DE COLONIZAÇÃO E REFORMA AGRÁRIA. Norma técnica para georreferenciamento de imóveis rurais. 3. ed. Brasília: INCRA, 2013.'
+      ].join('\n\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        this.textContent = '✅ Referências copiadas para a área de transferência!';
+        setTimeout(() => { this.textContent = '📋 Copiar referências normativas (formato ABNT)'; }, 2500);
+      } catch (e) {
+        alert(text);
+      }
+    });
+  </script>
+</body>
+</html>
